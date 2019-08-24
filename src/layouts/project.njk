@@ -1,5 +1,31 @@
-{% extends "base.njk" %}
+{% extends "page.njk" %}
 
-{% block title %}{{ title }} | {% endblock title %}
+{% block pageMenuContent %}
+  {% include "includes/project_sidebar.njk" %}
+{% endblock pageMenuContent %}
 
-{% block content %}{{ contents | safe }}{% endblock content %}
+{% block pageSidebar %}
+  {% include "includes/project_sidebar.njk" %}
+{% endblock pageSidebar %}
+
+{% block pageContent %}
+  {% for image in images %}
+    <div class="project-image" id="project-image-{{ loop.index }}">
+    {% if image.type == 'video' %}
+      <div class="embed-container">
+        <iframe src="https://player.vimeo.com/video/{{image.src}}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+    {% if image.type == 'image' %}
+      <img class="project-image-img" src="/images/{{image.src}}" />
+    {% endif %}
+    <p class="project-image-subtitle">{{image.title}}</p>
+  </div>
+  {% endfor %}
+{% endblock pageContent %}
+
+{% block extraJS %}
+  {% for js in webpack.project %}
+    <script src="/{{ js }}"></script>
+  {% endfor %}
+{% endblock extraJS %}

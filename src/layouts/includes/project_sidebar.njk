@@ -1,0 +1,43 @@
+<div class="project-sidebar">
+  <div class="project-header">
+    <h1 class="project-title">{{ title }}</h1>
+    <h2 class="project-dates">
+      {{ start_year }} - {% if end_year %}{{ end_year }}{% else %}present{% endif %}
+    </h2>
+  </div>
+
+  <p class="project-description">{{ contents | safe }}</p>
+
+  <h3 class="project-sidebar-header">Documentation</h3>
+  <ul class="project-sidebar-list">
+    {% for image in images %}
+      <li class="project-sidebar-list-item project-works-list-item{% if loop.first %} active{% endif %}">
+        <a href="#project-image-{{ loop.index }}">{{ image.title }}</a>
+        {% if image.year %}<span class="project-image-year">({{ image.year }})</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3 class="projects-sidebar-header">Other Works</h3>
+  <ul class="project-sidebar-list">
+    {% for project in projects %}
+      {% if project.title != title %}
+        <li class="project-sidebar-list-item">
+          <a href="/{{ project.path }}">{{ project.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h3 class="projects-sidebar-header">More</h3>
+  <ul class="project-sidebar-list">
+    <li class="project-sidebar-list-item">
+      <a href="/">Home</a>
+    </li>
+    {% for page in pages %}
+      <li class="project-sidebar-list-item">
+        <a href="/{{ page.path }}">{{ page.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

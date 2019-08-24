@@ -1,0 +1,36 @@
+.landing-video 
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  overflow: hidden
+  opacity: 0
+
+  &.current
+    @extend %fade-in
+    z-index: 2
+
+  &.last
+    opacity: 1
+    z-index: 1
+
+  video
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.landing-title
+  position: absolute
+  top: 0
+  left: 20px
+  font-size: 1.5rem
+
+.landing-menu-content
+  color: $text-emphasis
+  list-style-type: none
+  font-size: 1.5rem
+  margin: 0
+  padding: 0
+
+

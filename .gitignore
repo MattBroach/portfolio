@@ -1,3 +1,7 @@
 # BUILD FILES #
 ###############
 build/
+
+# ERROR FILES #
+###############
+yarn-error.log

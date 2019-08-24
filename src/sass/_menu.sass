@@ -1,0 +1,31 @@
+.menu-button
+  @extend %menu-button
+  z-index: 15
+  position: absolute
+  top: 1.6rem
+  right: 20px
+
+
+.menu-overlay
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  opacity: 0
+  background: rgba(0, 0, 0, .9)
+  z-index: 10
+  transition: opacity 1s
+  pointer-events: none
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 20px
+  overflow: scroll
+
+  &.open
+    opacity: 1
+    pointer-events: auto
+
+  > div, > ul
+    margin: auto

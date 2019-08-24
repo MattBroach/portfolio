@@ -1,0 +1,23 @@
+  {{ contents|safe }}
+
+  <h3 class="about-sidebar-header">Selected Works</h3>
+  <ul class="about-projects-list">
+    {% for project in projects %}
+      <li class="about-projects-list-item">
+        <a href="/{{ project.path }}">
+          {{ project.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3 class="about-sidebar-header">Elsewhere</h3>
+  <ul class="about-icons">
+    {% for icon in icons %}
+      <li class="about-icon-wrapper">
+        <a href="{{ icon.link }}" class="about-icon-link">
+          <img src="/images/{{ icon.src }}" class="svg" />
+        </a>
+      </li>
+    {% endfor %}
+  </ul>

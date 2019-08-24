@@ -1,0 +1,30 @@
+{% extends "base.njk" %}
+
+{% block title %}{{ title }} | {% endblock title %}
+
+{% block content %}
+  <div class="page-wrapper">
+    <div class="menu-overlay" id="menu-overlay">
+      {% block pageMenuContent %}
+      {% endblock pageMenuContent %}
+    </div>
+
+    <div class="page-mobile-header">
+      <h1 class="page-title">{{ title }}</h1>
+    </div>
+
+    <div class="page-sidebar">
+      {% block pageSidebar %}
+        <h1 class="page-sidebar-title">{{ title }}</h1>
+      {% endblock pageSidebar %}
+    </div>
+
+    <div class="page-content" id="page-content">
+      {% block pageContent %}
+        {{ contents | safe }}
+      {% endblock pageContent %}
+    </div>
+
+    {% include "includes/menu.njk" %}
+  </div>
+{% endblock content %}

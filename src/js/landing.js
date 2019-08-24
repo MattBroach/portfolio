@@ -1,1 +1,4 @@
-console.log('Testing 1, 2, 3, 4')
+import VideoCarousel from './carousel'
+
+const carousel = new VideoCarousel(projects)
+carousel.run()

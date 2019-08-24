@@ -1,0 +1,54 @@
+.page-wrapper
+  @extend %fullscreen
+  position: absolute
+  display: flex
+  top: 0
+  left: 0
+
+  .menu-button
+    display: none
+
+    +mobile
+      display: block
+      position: fixed
+
+.page-sidebar
+  width: 25%
+  padding: 20px 40px
+  transition: height 0.5s
+  overflow: scroll
+
+  +mobile
+    display: none
+
+.page-content
+  width: 75%
+  height: 100%
+  overflow: scroll
+  scroll-behavior: smooth
+
+  +mobile
+    width: 100%
+    height: auto
+    padding-top: 3rem
+
+.menu-overlay
+  .active > a
+    color: $text-main
+
+.page-wrapper
+  .page-mobile-header
+    position: fixed
+    top: 20px
+    left: 20px
+    display: none
+    z-index: 9
+
+    +mobile
+      display: block
+
+.page-title
+  font-size: 1.5rem
+  color: $text-emphasis
+  margin: 0
+

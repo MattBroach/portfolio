@@ -2,7 +2,9 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    landing: './src/js/landing.js' 
+    landing: './src/js/landing.js',
+    menu: './src/js/menu.js',
+    project: './src/js/project.js',
   },
   module: {
     rules: [
@@ -12,7 +14,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name]-[has].js',
+    filename: '[name]-[hash].js',
     path: path.resolve(__dirname, 'build', 'js'),
   }
 }

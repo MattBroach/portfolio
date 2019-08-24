@@ -9,6 +9,7 @@ splash:
   mp4: "twitch_plays_2.mp4"
 images:
   - type: "video"
-    src: "https://vimeo.com/331502481"
+    src: "331502481"
+    title: "Video Sample"
 ---
 _Twitch Plays with Itself_ is a live-streaming Ouroboros; an infinite video feedback loop in which the paramters of the feedback are controlled by Twitch chat. It ran for several months during the summer of 2018 on [Twitch](https://twitch.tv/twitch_plays_itself)

@@ -1,0 +1,64 @@
+.project-dates
+  font-size: 0.9rem
+  margin: 0
+
+.project-image
+  @extend %fullscreen
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: stretch
+  padding: 20px
+  flex-shrink: 0
+
+  +mobile
+    display: block
+    text-align: center
+    height: auto
+
+.project-image-year
+  color: $text-sub
+
+.project-image-subtitle
+  color: $text-sub
+  text-align: right
+  margin-top: 0
+
+.project-sidebar-header
+  margin-bottom: 5px
+
+.project-sidebar-list
+  @extend %no-style-list
+
+.project-sidebar-list-item
+  @extend %dash-list-item
+
+.project-works-list-item
+  &.active > a
+    color: $text-emphasis
+
+.embed-container
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+  overflow: hidden
+  width: 100%
+  
+  iframe, object, embed 
+    @extend %fullscreen
+    position: absolute
+    top: 0
+    left: 0
+
+.project-image-img
+  max-width: 100%
+  max-height: 100%
+  object-fit: contain
+
+.project-sidebar
+  max-width: 800px
+
+.project-title
+  font-size: 1.5rem
+  color: $text-emphasis
+  margin: 0

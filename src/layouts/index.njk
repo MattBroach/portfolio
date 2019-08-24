@@ -1,18 +1,74 @@
 {% extends "base.njk" %}
 
+{% block extraCSS %}
+  <style>
+    {% for project in projects %}
+      {% if project.splash.title_color %}
+        #{{ project.path | replace("/", "-") }} > .landing-title > a {
+          color: {{ project.splash.title_color }} 
+        }
+      {% endif %}
+      {% if project.splash.title_hover %}
+        #{{ project.path | replace("/", "-") }} > .landing-title > a:hover {
+          color: {{ project.splash.title_hover }} 
+        }
+      {% endif %}
+    {% endfor %}
+  </style>
+{% endblock extraCSS %}
+
 {% block content %}
-  {% for project in projects %}
-    <a href="{{ project.path }}">{{ project.title }}</a>
-  {% endfor %}
-  <div id="landing-video">
-    <video autoplay muted loop>
-      <source src="videos/twitch_plays_2.webm" type="video/webm">
-      <source src="videos/twitch_plays_2.mp4" type="video/mp4">
-    </video>
+  <div class="menu-overlay" id="menu-overlay">
+    <ul class="landing-menu-content">
+      <li class="landing-menu-header">Selected Works</li>
+      {% for project in projects %}
+        <li>
+          <a href="{{ project.path }}">
+            {{ project.title }}
+          </a>
+        </li>
+      {% endfor %}
+      <li><hr /></li>
+      {% for page in pages %}
+        <li>
+          <a href="{{ page.path }}">
+            {{ page.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
+
+  <div class="landing-video last" id="{{ projects[0].path | replace("/", "-") }}">
+    <video autoplay muted loop>
+      <source src="/videos/{{ projects[0].splash.webm }}" type="video/webm">
+      <source src="/videos/{{ projects[0].splash.mp4 }}" type="video/mp4">
+    </video>
+    <h1 class="landing-title">
+      <a href="{{ projects[0].path }}">
+        {{ projects[0].title }}
+      </a>
+    </h1>
+  </div>
+
+  {% include "includes/menu.njk" %}
 {% endblock content %}
 
 {% block extraJS %}
+  <script>
+    var projects = [
+      {% for project in projects %}
+        {
+          title: '{{ project.title }}',
+          webm: '/videos/{{ project.splash.webm }}',
+          mp4: '/videos/{{ project.splash.mp4 }}',
+          id: '{{ project.path | replace("/", "-") }}',
+          path: '{{ project.path }}',
+          titleColor: '{{ project.splash.title_color }}',
+        },
+      {% endfor %}
+    ];
+  </script>
   {% for js in webpack.landing %}
     <script src="/{{ js }}"></script>
   {% endfor %}

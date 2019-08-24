@@ -9,6 +9,7 @@ const permalinks = require('metalsmith-permalinks')
 const collections = require('metalsmith-collections')
 const debug = require('metalsmith-debug')
 const sass = require('metalsmith-sass')
+const inlineSVG = require('metalsmith-inline-svg')
 
 const loadFiles = require('./plugins/loadFiles')
 const clearCollections = require('./plugins/clearCollections')
@@ -22,7 +23,7 @@ const prodConfig = require('./webpack.prod.js')
 
 MOVIE_EXTENSIONS = ['.webm', '.mp4']
 MOVIE_DIR = 'videos'
-IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif']
+IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.ico']
 IMAGE_DIR = 'images'
 
 BANNED_EXTENSIONS = ['.swp', '.swo']
@@ -47,13 +48,16 @@ const app = metalsmith(__dirname)
   .use(clearCollections())
   .use(loadFiles([
     './src/**/*.sass',
-    //'./src/js/**/*.js',
+    './src/images/**/*',
   ]))
   .use(collections({
     projects: {
       pattern: 'projects/**/*.md',
       sortBy: 'order'
-    }
+    },
+    pages: {
+      pattern: 'pages/**/*.md',
+    },
   }))
   .use(markdown())
   .use(moveByExtension(MOVIE_EXTENSIONS, MOVIE_DIR))
@@ -68,6 +72,7 @@ const app = metalsmith(__dirname)
     default: 'project.njk',
     pattern: '**/*.html',
   }))
+  .use(inlineSVG())
   .use(sass({
     outputDir: 'css/' ,
     includePaths: ['./src/sass',],

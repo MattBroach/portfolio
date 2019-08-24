@@ -1,3 +1,69 @@
 %fullscreen
   width: 100%
   height: 100%
+
+/* DASH LIST MIXINS */
+/********************/
+%no-style-list
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+%dash-list-item
+  text-index: -5px
+
+  &:before
+    content: '-'
+    text-indent: -5px
+
+/* BREAKPOINT MIXINS */
+/*********************/
+@mixin mobile
+  @media (max-width: 1100px)
+    @content
+
+@mixin phone
+  @media (max-width: 600px)
+    @content
+
+/* MENU BUTTON MIXINS */
+/**********************/
+%menu-button
+  cursor: pointer
+  width: 30px
+  height: 25px
+
+  &:hover
+    .menu-bar
+      background-color: $text-link-active
+
+  .menu-bar
+    background-color: $text-link
+    border-radius: 1px
+    display: block
+    width: 100%
+    height: 2px
+
+    &:nth-child(1)
+      animation: topBarOut 0.8s backwards
+      animation-direction: reverse
+
+    &:nth-child(2)
+      margin: 5px 0
+      animation: middleBarOut 0.8s backwards
+      animation-direction: reverse
+
+    &:nth-child(3)
+      animation: bottomBarOut 0.8s backwards
+      animation-direction: reverse
+
+  &.open
+    .menu-bar
+      &:nth-child(1)
+        animation: topBarIn 0.8s forwards
+
+      &:nth-child(2)
+        animation: middleBarIn 0.8s forwards
+
+      &:nth-child(3)
+        animation: bottomBarIn 0.8s forwards

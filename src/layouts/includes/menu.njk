@@ -1,0 +1,10 @@
+  <div class="menu-button" id="menu-button">
+    <div class="menu-bar"></div>
+    <div class="menu-bar"></div>
+    <div class="menu-bar"></div>
+  </div>
+
+
+  {% for js in webpack.menu %}
+    <script src="/{{ js }}"></script>
+  {% endfor %}
