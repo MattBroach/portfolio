@@ -29,7 +29,7 @@ export default class VideoCarousel {
   constructVideo(video) {
     return `
       <div class="landing-video fade-in current" id="${video.id}">
-        <video autoplay muted loop poster="${video.poster}">
+        <video data-dashjs-player autoplay muted loop poster="${video.poster}">
           <source src="${video.dash}" type="application/dash+xml">
           <source src="${video.webm}" type="video/webm">
           <source src="${video.mp4}" type="video/mp4">
