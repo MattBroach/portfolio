@@ -9,6 +9,8 @@ splash:
   mp4: "commutual_1.mp4"
   title_color: "#31445c"
   title_hover: "#060a09"
+  dash: "commutual_1.mpd"
+  poster: "commutual_1_poster.jpg"
 images:
   - type: "image"
     src: "Commutual_01.jpg"

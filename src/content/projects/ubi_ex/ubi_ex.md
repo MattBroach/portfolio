@@ -9,6 +9,8 @@ splash:
   mp4: "ubi_ex.mp4"
   title_color: "#31445c"
   title_hover: "#060a09"
+  dash: "ubi_ex.mpd"
+  poster: "ubi_ex_poster.jpg"
 images:
   - type: "video"
     src: "22798003"

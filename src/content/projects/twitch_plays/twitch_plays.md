@@ -7,6 +7,8 @@ end_year: 2019
 splash: 
   webm: "twitch_plays_2.webm"
   mp4: "twitch_plays_2.mp4"
+  dash: "twitch_plays_2.mpd"
+  poster: "twitch_plays_2_poster.jpg"
 images:
   - type: "video"
     src: "331502481"

@@ -6,6 +6,8 @@ start_year: 2012
 splash:
   webm: "ladies_and_gentlemen_2.webm"
   mp4: "ladies_and_gentlemen_2.mp4"
+  dash: "ladies_and_gentlemen_2.mpd"
+  poster: "ladies_and_gentlemen_2_poster.jpg"
 images:
   - type: "video"
     src: "60933661"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="urn:mpeg:DASH:schema:MPD:2011"
+  xsi:schemaLocation="urn:mpeg:DASH:schema:MPD:2011"
+  type="static"
+  mediaPresentationDuration="PT15.015S"
+  minBufferTime="PT1S"
+  profiles="urn:webm:dash:profile:webm-on-demand:2012">
+<Period id="0" start="PT0S" duration="PT15.015S" >
+<AdaptationSet id="0" mimeType="video/webm" codecs="vp9" lang="eng" bitstreamSwitching="true" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+<Representation id="0" bandwidth="175167" width="160" height="90">
+<BaseURL>ubi_ex_160x90_250k.webm</BaseURL>
+<SegmentBase
+  indexRange="353516-353582">
+<Initialization
+  range="0-820" />
+</SegmentBase>
+</Representation>
+<Representation id="1" bandwidth="371859" width="320" height="180">
+<BaseURL>ubi_ex_320x180_500k.webm</BaseURL>
+<SegmentBase
+  indexRange="748483-748549">
+<Initialization
+  range="0-821" />
+</SegmentBase>
+</Representation>
+<Representation id="2" bandwidth="621077" width="640" height="360">
+<BaseURL>ubi_ex_640x360_750k.webm</BaseURL>
+<SegmentBase
+  indexRange="1247876-1247942">
+<Initialization
+  range="0-822" />
+</SegmentBase>
+</Representation>
+<Representation id="3" bandwidth="1237911" width="1280" height="720">
+<BaseURL>ubi_ex_1280x720_1500k.webm</BaseURL>
+<SegmentBase
+  indexRange="2487662-2487728">
+<Initialization
+  range="0-822" />
+</SegmentBase>
+</Representation>
+<Representation id="4" bandwidth="1642772" width="1920" height="1080">
+<BaseURL>ubi_ex_1920x1080_2000k.webm</BaseURL>
+<SegmentBase
+  indexRange="3295283-3295349">
+<Initialization
+  range="0-822" />
+</SegmentBase>
+</Representation>
+</AdaptationSet>
+</Period>
+</MPD>

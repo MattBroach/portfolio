@@ -7,6 +7,8 @@ end_year: 2012
 splash:
   webm: "sensitive_screen_1.webm"
   mp4: "sensitive_screen_1.mp4"
+  dash: "sensitive_screen_1.mpd"
+  poster: "sensitive_screen_1_poster.jpg"
 images:
   - type: "video"
     src: "53871338"

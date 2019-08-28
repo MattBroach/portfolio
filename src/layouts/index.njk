@@ -40,7 +40,7 @@
   </div>
 
   <div class="landing-video last" id="{{ projects[0].path | replace("/", "-") }}">
-    <video autoplay muted loop>
+    <video data-dashjs-player autoplay muted loop>
       <source src="/videos/{{ projects[0].splash.webm }}" type="video/webm">
       <source src="/videos/{{ projects[0].splash.mp4 }}" type="video/mp4">
     </video>
@@ -64,12 +64,14 @@
           mp4: '/videos/{{ project.splash.mp4 }}',
           id: '{{ project.path | replace("/", "-") }}',
           path: '{{ project.path }}',
-          titleColor: '{{ project.splash.title_color }}',
+          dash: '/videos/{{ project.splash.dash}}',
+          poster: '/videos/{{ project.splash.poster }}',
         },
       {% endfor %}
     ];
   </script>
   {% for js in webpack.landing %}
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script src="/{{ js }}"></script>
   {% endfor %}
 {% endblock extraJS %}
